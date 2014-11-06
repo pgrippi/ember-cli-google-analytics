@@ -4,10 +4,30 @@ var merge = require('lodash-node/compat/objects/merge');
 var googleAnalyticsConfigDefaults = {
   globalVariable: 'ga',
   tracker: 'analytics.js',
-  webPropertyId: null
+  webPropertyId: null,
+  cookieDomain: null,
+  cookieName: null,
+  cookieExpires: null
 };
 
 function analyticsTrackingCode(config) {
+  var gaConfig = {};
+  if (config.cookieDomain != null) {
+    gaConfig.cookieDomain = config.cookieDomain;
+  }
+  if (config.cookieName != null) {
+    gaConfig.cookieName = config.cookieName;
+  }
+  if (config.cookieExpires != null) {
+    gaConfig.cookieExpires = config.cookieExpires;
+  }
+
+  if (Object.keys(gaConfig).length === 0) {
+    gaConfig = "'auto'";
+  } else {
+    gaConfig = JSON.stringify(gaConfig);
+  }
+
   return [
     "<script>",
     "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){",
@@ -15,7 +35,7 @@ function analyticsTrackingCode(config) {
     "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)",
     "})(window,document,'script','//www.google-analytics.com/analytics.js','" + config.globalVariable + "');",
     "",
-    "" + config.globalVariable + "('create', '" + config.webPropertyId + "', 'auto');",
+    "" + config.globalVariable + "('create', '" + config.webPropertyId + "', " + gaConfig + ");",
     "" + config.globalVariable + "('send', 'pageview');",
     "</script>"
   ];
