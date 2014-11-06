@@ -34,6 +34,16 @@ if (environment === 'production') {
 
 ### Configuration Parameters
 
+**ga.js and analytics.js**
+
 * `webPropertyId` (Default: `null`): the Web Property ID for the Google Web Property you wish to track.
-* `tracker` (Default: `analytics.js`): The Google Tracker to use, can be either `analytics.js` or `ga.js`
+* `tracker` (Default: `analytics.js`): The Google Tracker to use, can be either `analytics.js` or `ga.js`.
 * `globalVariable` (Default: `ga`): the global variable to use for the Google Analytics tracker object. This is ignored when the `tracker` is `ga.js`.
+
+**analytics.js only**
+
+* `cookieDomain` (Default: `null`): the domain to set the tracking cookies on. Can be a `null`, the domain to use for cookies, or 'none'.
+* `cookieName` (Default: `null`): the name of the cookie to set and use.
+* `cookieExpires` (Default: `null`): the expiration, in seconds, of the cookie.
+
+If none of the cookie settings are set (they are left nullish) then `'auto'` will be used for the cookie settings. Otherwise the JSON of only the settings set will be passed to the `ga()` function.
