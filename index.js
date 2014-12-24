@@ -7,11 +7,15 @@ var googleAnalyticsConfigDefaults = {
   webPropertyId: null,
   cookieDomain: null,
   cookieName: null,
-  cookieExpires: null
+  cookieExpires: null,
+  displayFeatures: false
 };
 
 function analyticsTrackingCode(config) {
-  var gaConfig = {};
+  var scriptArray,
+      displayFeaturesString,
+      gaConfig = {};
+
   if (config.cookieDomain != null) {
     gaConfig.cookieDomain = config.cookieDomain;
   }
@@ -21,14 +25,13 @@ function analyticsTrackingCode(config) {
   if (config.cookieExpires != null) {
     gaConfig.cookieExpires = config.cookieExpires;
   }
-
   if (Object.keys(gaConfig).length === 0) {
     gaConfig = "'auto'";
   } else {
     gaConfig = JSON.stringify(gaConfig);
   }
 
-  return [
+  scriptArray = [
     "<script>",
     "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){",
     "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),",
@@ -39,6 +42,13 @@ function analyticsTrackingCode(config) {
     "" + config.globalVariable + "('send', 'pageview');",
     "</script>"
   ];
+
+  if (config.displayFeatures) {
+    displayFeaturesString = "" + config.globalVariable + "('require', 'displayfeatures');";
+    scriptArray.splice(-2, 0, displayFeaturesString);
+  }
+
+  return scriptArray;
 }
 
 function gaTrackingCode(config) {
