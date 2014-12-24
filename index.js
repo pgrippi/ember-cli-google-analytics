@@ -52,7 +52,9 @@ function analyticsTrackingCode(config) {
 }
 
 function gaTrackingCode(config) {
-  return [
+  var scriptArray;
+
+  scriptArray = [
     "<script>",
     "var _gaq = _gaq || [];",
     "_gaq.push(['_setAccount', '" + config.webPropertyId + "']);",
@@ -65,6 +67,12 @@ function gaTrackingCode(config) {
     "})();",
     "</script>"
   ];
+
+  if (config.displayFeatures) {
+    scriptArray.splice(-4, 1, "  ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';");
+  }
+
+  return scriptArray;
 }
 
 module.exports = {

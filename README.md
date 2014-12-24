@@ -39,6 +39,7 @@ if (environment === 'production') {
 * `webPropertyId` (Default: `null`): the Web Property ID for the Google Web Property you wish to track.
 * `tracker` (Default: `analytics.js`): The Google Tracker to use, can be either `analytics.js` or `ga.js`.
 * `globalVariable` (Default: `ga`): the global variable to use for the Google Analytics tracker object. This is ignored when the `tracker` is `ga.js`.
+* `displayFeatures` (Default: `false`): enables [Display Advertising](https://support.google.com/analytics/answer/3450482) tracking code.
 
 **analytics.js only**
 
