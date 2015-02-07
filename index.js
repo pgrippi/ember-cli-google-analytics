@@ -39,7 +39,6 @@ function analyticsTrackingCode(config) {
     "})(window,document,'script','//www.google-analytics.com/analytics.js','" + config.globalVariable + "');",
     "",
     "" + config.globalVariable + "('create', '" + config.webPropertyId + "', " + gaConfig + ");",
-    "" + config.globalVariable + "('send', 'pageview');",
     "</script>"
   ];
 
