@@ -1,6 +1,6 @@
 # ember-cli-google-analytics Changelog
 
-### Master
+### v1.3.1
 
 * [BUGFIX] Mixin would not fire unless the `googleAnalytics.tracker` configuration option was explicitly set. It now defaults to `analytics.js` when no value is set.
 * [BUGFIX] Mixin used hard-coded `ga` global variable when using the analytics.js tracker. It will now use the value set in the `googleAnalytics.globalVariable` configuration option, or `ga` if no value is set.
