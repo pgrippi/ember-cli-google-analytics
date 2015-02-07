@@ -18,6 +18,26 @@ This plugin is intended to add Google Analytics tracking as an inline script. Th
 
 A future version of this plugin is planned to add the tracking code as an additional JS file (much like [ember-cli-inject-live-reload](https://github.com/rwjblue/ember-cli-inject-live-reload)), but until then this plugin will not function out of the box with CSP installed.
 
+## Usage
+
+Once configured, the Google Analytics tracking code will be injected into your index.html file. A mixin is provided for simple page view tracking inside of your Ember application. To use it, include it inside your `app/router.js` file:
+
+```
+import Ember from 'ember';
+import config from './config/environment';
+import googlePageview from './mixins/google-pageview';
+
+var Router = Ember.Router.extend(googlePageview, {
+  location: config.locationType
+});
+
+Router.map(function() {
+  ...
+});
+
+export default Router;
+```
+
 ## Configuration
 
 This plugin uses the Ember CLI project's configuration as defined in `config/environment.js`.
