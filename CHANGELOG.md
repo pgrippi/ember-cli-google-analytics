@@ -1,5 +1,10 @@
 # ember-cli-google-analytics Changelog
 
+### Master
+
+* [BUGFIX] Mixin would not fire unless the `googleAnalytics.tracker` configuration option was explicitly set. It now defaults to `analytics.js` when no value is set.
+* [BUGFIX] Mixin used hard-coded `ga` global variable when using the analytics.js tracker. It will now use the value set in the `googleAnalytics.globalVariable` configuration option, or `ga` if no value is set.
+
 ### v1.3.0
 
 * Added a mixin that can be included in the applications Router that will trigger the Google Analytics pageview when transitioning between routes.

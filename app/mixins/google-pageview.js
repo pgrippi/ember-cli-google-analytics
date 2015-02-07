@@ -4,10 +4,12 @@ import ENV from '../config/environment';
 export default Ember.Mixin.create({
   pageviewToGA: function() {
     if (Ember.get(ENV, 'googleAnalytics.webPropertyId') != null) {
-      var trackerType = Ember.get(ENV, 'googleAnalytics.tracker');
+      var trackerType = Ember.getWithDefault(ENV, 'googleAnalytics.tracker', 'analytics.js');
 
       if (trackerType === 'analytics.js') {
-        window.ga('send', 'pageview', {
+        var globalVariable = Ember.getWithDefault(ENV, 'googleAnalytics.globalVariable', 'ga');
+
+        window[globalVariable]('send', 'pageview', {
           'page': this.get('url'),
           'title': this.get('url')
         });
