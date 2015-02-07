@@ -68,3 +68,17 @@ if (environment === 'production') {
 * `cookieExpires` (Default: `null`): the expiration, in seconds, of the cookie.
 
 If none of the cookie settings are set (they are left nullish) then `'auto'` will be used for the cookie settings. Otherwise the JSON of only the settings set will be passed to the `ga()` function.
+
+## Running Tests
+
+* `git clone git@github.com:pgrippi/ember-cli-google-analytics.git`
+* `npm install`
+* `ember test`
+* `ember test --server`
+
+## Building
+
+* `ember build`
+
+For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
