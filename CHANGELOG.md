@@ -1,5 +1,9 @@
 # ember-cli-google-analytics Changelog
 
+### v1.3.2
+
+* [BUGFIX] Cordova doesn't support protocol relative URL's, analytics.js will now always be included with the `https` protocol
+
 ### v1.3.1
 
 * [BUGFIX] Mixin would not fire unless the `googleAnalytics.tracker` configuration option was explicitly set. It now defaults to `analytics.js` when no value is set.
