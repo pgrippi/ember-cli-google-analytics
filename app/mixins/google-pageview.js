@@ -15,7 +15,7 @@ export default Ember.Mixin.create({
 
         window[globalVariable]('send', 'pageview', {
           page: page,
-          title: title 
+          title: title
         });
       } else if (trackerType === 'ga.js') {
         window._gaq.push(['_trackPageview']);
