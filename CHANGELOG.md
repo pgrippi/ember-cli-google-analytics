@@ -1,5 +1,9 @@
 # ember-cli-google-analytics Changelog
 
+### v1.4.0
+
+* [#9](https://github.com/pgrippi/ember-cli-google-analytics/pull/9) Page and Title arguments have been added to the `google-pageview` mixin allowing it to be called manually
+
 ### v1.3.2
 
 * [BUGFIX] Cordova doesn't support protocol relative URL's, analytics.js will now always be included with the `https` protocol
