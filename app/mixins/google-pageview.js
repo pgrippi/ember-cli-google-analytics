@@ -16,7 +16,7 @@ export default Ember.Mixin.create({
       if (trackerType === 'analytics.js') {
         var globalVariable = Ember.getWithDefault(ENV, 'googleAnalytics.globalVariable', 'ga');
 
-	this.beforePageviewToGA(window[globalVariable]);
+        this.beforePageviewToGA(window[globalVariable]);
 
         window[globalVariable]('send', 'pageview', {
           page: page,
