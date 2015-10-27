@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-google-analytics",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Ember CLI addon that adds the Google Analytics tracking code",
   "directories": {
     "doc": "doc",
