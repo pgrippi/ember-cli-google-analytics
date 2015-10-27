@@ -1,5 +1,10 @@
 # ember-cli-google-analytics Changelog
 
+### v1.5.0
+
+* [FEATURE] [#12](https://github.com/pgrippi/ember-cli-google-analytics/pull/12) Added callback function to send additional data before pageview is sent
+* [ENHANCEMENT] [#13](https://github.com/pgrippi/ember-cli-google-analytics/pull/13) Removed dependency on prototype extensions
+
 ### v1.4.0
 
 * [#9](https://github.com/pgrippi/ember-cli-google-analytics/pull/9) Page and Title arguments have been added to the `google-pageview` mixin allowing it to be called manually
