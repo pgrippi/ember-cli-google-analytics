@@ -6,7 +6,7 @@ export default Ember.Mixin.create({
 
   },
 
-  pageviewToGA: function(page, title) {
+  pageviewToGA: Ember.on('didTransition', function(page, title) {
     var page = page ? page : this.get('url');
     var title = title ? title : this.get('url');
 
@@ -26,6 +26,6 @@ export default Ember.Mixin.create({
         window._gaq.push(['_trackPageview']);
       }
     }
-  }.on('didTransition')
+  })
 
 });
