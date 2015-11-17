@@ -1,3 +1,4 @@
+/* jshint node: true */
 'use strict';
 
 var merge = require('lodash-node/compat/objects/merge');

@@ -9,7 +9,7 @@ Plugin for ember-cli that injects Google Analytics tracking code into HTML conte
 To install simply run:
 
 ```
-npm install --save-dev ember-cli-google-analytics
+ember install ember-cli-google-analytics
 ```
 
 ## Warning: Content Security Policy
@@ -27,7 +27,7 @@ import Ember from 'ember';
 import config from './config/environment';
 import googlePageview from './mixins/google-pageview';
 
-var Router = Ember.Router.extend(googlePageview, {
+const Router = Ember.Router.extend(googlePageview, {
   location: config.locationType
 });
 
